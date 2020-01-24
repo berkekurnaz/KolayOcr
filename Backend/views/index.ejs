@@ -89,12 +89,17 @@
                             <p>Resim Üzerinden Yazı Tanıma</p>
                             <h3>KolayOcr Okumak İstediğiniz Resmi Yükleyiniz</h3>
                             <div class="find_dowmain">
-                                <form action="#" class="find_dowmain_form">
-                                    <input type="text" placeholder="Find your domain">
-                                    <button type="submit">Yükle</button>
+                                <form class="find_dowmain_form">
+                                    <input id="fileInputArea" class="file-upload-input" type='file' accept="image/*" />
+                                    <button id="btnSend" type="button">Yükle</button>
                                 </form>
                             </div>
                         </div>
+                    </div>
+                    <div class="container mt-3">
+                            <center><div class="loader" style="display: none;"></div></center>
+                        <h5 style="color:#fff;text-align: center">Sonuçlar</h5>
+                        <textarea class="form-control" id="resultText" rows="8"></textarea>
                     </div>
                 </div>
             </div>
@@ -357,8 +362,8 @@
 
 
 
-
     <!-- JS here -->
+
     <script src="js/vendor/modernizr-3.5.0.min.js"></script>
     <script src="js/vendor/jquery-1.12.4.min.js"></script>
     <script src="js/popper.min.js"></script>
@@ -386,6 +391,15 @@
     <script src="js/mail-script.js"></script>
 
     <script src="js/main.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.4/croppie.js"></script>
+
+    <!-- Custom Js here -->
+    <script src="myjs/customSendOcr.js"></script>
+    <script src="myjs/customImageCropper.js"></script>
+
+
+
 </body>
 
 </html>
