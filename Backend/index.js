@@ -95,6 +95,9 @@ app.get("/iletisim", (req, res) => {
 
 
 /* API OCR Endpoint */
+app.get("/api",(req,res)=>{
+    res.json("Lutfen Bu Adrese POST Istegi Atiniz.");
+});
 app.post("/api", upload.single('file'), (req, res) => {
 
     if (req.file) {
