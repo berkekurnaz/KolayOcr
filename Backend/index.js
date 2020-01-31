@@ -9,6 +9,9 @@ const app = express();
 var http = require('http').createServer(app);
 var io = require('socket.io')(http);
 
+/* Send Mail Settings */
+var sendMail = require("./helper/sendMail");
+
 /* Upload Image Settings */
 var creatorImageName = require("./helper/creatorImageName");
 var myImageHelper = require("./helper/myImageHelper");
@@ -40,7 +43,9 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 app.use(express.static(path.join(__dirname, "public")));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
 
 // cors settings
 var cors = require("cors");
@@ -90,6 +95,14 @@ app.get("/apikullanim", (req, res) => {
 /* Iletisim */
 app.get("/iletisim", (req, res) => {
     res.render("iletisim.ejs");
+});
+app.post("/iletisim", (req, res) => {
+    var messageContact = req.body.mail + " - " + req.body.namesurname + " - " + req.body.title + " - " + req.body.content;
+    sendMail.mailSend(messageContact).then((data) => {
+        res.redirect("/");
+    }).catch((err) => {
+        res.json("error");
+    });
 });
 
 

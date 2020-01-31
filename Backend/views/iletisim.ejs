@@ -36,7 +36,7 @@
                     <div class="row align-items-center no-gutters">
                         <div class="col-xl-2 col-lg-2">
                             <div class="logo-img">
-                                <a href="index.html">
+                                <a href="/">
                                     <img src="img/logo.png" alt="">
                                 </a>
                             </div>
@@ -85,8 +85,44 @@
     </div>
     <!-- bradcam_area_end -->
 
-    <div class="container-fluid">
+    <div class="container-fluid text-center">
+        <br>
+        <center>
+            <div class="col-8">
+                <div class="card">
+                    <div class="card-header">
+                        İletişim Formu
+                    </div>
+                    <div class="card-body">
 
+                        <form action="/iletisim" method="POST">
+                            <div class="form-group">
+                                <label>Mail Adresi</label>
+                                <input id="mail" name="mail" type="text" class="form-control" placeholder="Mail Adresinizi Giriniz..."
+                                    required>
+                            </div>
+                            <div class="form-group">
+                                <label>Ad Soyad</label>
+                                <input id="namesurname" name="namesurname" type="text" class="form-control" placeholder="Adınızı Soyadınızı Giriniz..."
+                                    required>
+                            </div>
+                            <div class="form-group">
+                                <label>Başlık</label>
+                                <input id="title" name="title" type="text" class="form-control" placeholder="Mesaj Başlığınızı Giriniz..."
+                                    required>
+                            </div>
+                            <div class="form-group">
+                                <label>Mesaj</label>
+                                <textarea id="content" name="content" class="form-control" placeholder="Mesajınızı Giriniz..." rows="5" required></textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">Mesaj Gönder</button>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </center>
     </div>
 
 
