@@ -100,17 +100,38 @@ app.get("/apikullanim", (req, res) => {
 
 /* Iletisim */
 app.get("/iletisim", (req, res) => {
-    res.render("iletisim.ejs");
+    res.render("iletisim.ejs", {msg: ""});
 });
 app.post("/iletisim", (req, res) => {
-    var messageContact = req.body.mail + " - " + req.body.namesurname + " - " + req.body.title + " - " + req.body.content;
-    sendMail.mailSend(messageContact).then((data) => {
-        res.redirect("/");
-    }).catch((err) => {
-        res.json("error");
+    var currentdate = new Date(); 
+    var datetime =  currentdate.getDate() + "/"
+                    + (currentdate.getMonth()+1)  + "/" 
+                    + currentdate.getFullYear() + " @ "  
+                    + currentdate.getHours() + ":"  
+                    + currentdate.getMinutes() + ":" 
+                    + currentdate.getSeconds();
+
+    new Contact({
+        namesurname: req.body.namesurname,
+        mail: req.body.mail,
+        title: req.body.title,
+        content: req.body.content,
+        date: datetime,
+        isRead: "false",
+    }).save().then((data)=>{
+        console.log("Contact Save Succesful");
+        res.render("iletisim.ejs", {msg: "Mesaj Başarıyla Gönderildi."});
+    }).catch((err)=>{
+        console.log("Contact Save Error");
+        res.json("Error");
     });
+
 });
 
+/* Kayit Ol */
+app.get("/kayitol", (req, res) => {
+    res.render("kayitol.ejs");
+});
 
 
 /* API OCR Endpoint */

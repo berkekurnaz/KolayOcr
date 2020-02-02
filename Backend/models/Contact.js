@@ -7,6 +7,7 @@ var contactSchema = new Schema({
     mail: String,
     title: String,  
     content: String,
+    date: String,
     isRead: String,
 });
 
