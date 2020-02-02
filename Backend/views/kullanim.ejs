@@ -85,8 +85,39 @@
     </div>
     <!-- bradcam_area_end -->
 
-    <div class="container-fluid">
-        
+    <div class="container-fluid col-md-6">
+        <br>
+        <div class="card">
+            <div class="card-header">
+                KolayOcr Detaylı Kullanım Menüsü
+            </div>
+            <div class="card-body">
+
+                <form  method="POST">
+                    <div class="form-group">
+                        <label>Yüklenecek Dosya</label><br>
+                        <input class="form-control" id="fileInputArea" class="file-upload-input" type='file' accept="image/*" style="" />
+                    </div>
+                    <div class="form-group">
+                        <label>Çıktı Formatı</label>
+                        <select class="form-control">
+                            <option>Microsoft Word (docx)</option>
+                            <option>Düz Yazı (txt)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Tanımlanacak Dil</label>
+                        <select class="form-control">
+                            <option>Türkçe</option>
+                            <option>İngilizce</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">İşlemi Başlat</button>
+                </form>
+            </div>
+        </div>
+        <br>
     </div>
 
 
