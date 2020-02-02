@@ -9,6 +9,9 @@ const app = express();
 var http = require('http').createServer(app);
 var io = require('socket.io')(http);
 
+const db = require("./helper/db")();
+var mongoose = require('mongoose')
+
 /* Send Mail Settings */
 var sendMail = require("./helper/sendMail");
 
@@ -37,6 +40,9 @@ var storage = multer.diskStorage({
 });
 var upload = multer({ storage: storage });
 
+
+/* DB MODEL FILES */
+var Contact = require("./models/Contact");
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
